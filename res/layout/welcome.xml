@@ -11,13 +11,14 @@
     			android:layout_centerInParent="true"
     			android:background="@drawable/buttons_bg1"
     			android:src="@drawable/buttons_play"/>
-    <ImageView android:id="@+id/title_img"
+<!--      <TextView 
+        android:text="Start"
     		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
     		android:layout_below="@id/play_btn"
     		android:layout_centerHorizontal="true"
-    		android:src="@drawable/title"
     		android:paddingTop="10dip"/>
+-->
    	<ImageView
    			android:id="@+id/clock"
     		android:layout_width="wrap_content"
@@ -49,12 +50,12 @@
     			android:layout_height="wrap_content"
     			android:layout_alignParentBottom="true"
     			android:layout_centerHorizontal="true"
-    			android:paddingBottom="10dip"
+    			android:paddingBottom="40dip"
     			>
 	    <ImageButton android:id="@+id/refresh_btn"
 	    			android:background="@drawable/refresh"
-	    			android:layout_width="wrap_content"
-	    			android:layout_height="wrap_content"
+	    			android:layout_width="30dip"
+	    			android:layout_height="30dip"
 	    			android:visibility="gone"
 	    			/>
 	    <TextView android:id="@+id/text_refresh_num"
@@ -66,8 +67,8 @@
 	    			android:visibility="gone"
 	    			android:textSize="15sp"/>
 	    <ImageButton android:id="@+id/tip_btn"
-	    			android:layout_width="wrap_content"
-	    			android:layout_height="wrap_content"
+	    			android:layout_width="30dip"
+	    			android:layout_height="30dip"
 	    			android:background="@drawable/light_bulb"
 	    			android:visibility="gone"
 	    			/>

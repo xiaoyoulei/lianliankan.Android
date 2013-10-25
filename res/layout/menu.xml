@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/mainbg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+   
+    <ImageView android:background="@drawable/title"
+        android:layout_height ="wrap_content"
+        android:layout_width = "wrap_content"
+        />
+"
+    <Button android:id = "@+id/button_1"
+        android:background="@drawable/button_1" 
+        android:layout_width="120px"
+        android:layout_height="48px"
+        android:text="@string/nomal"
+        />
+    <Button android:id = "@+id/button_2"
+        android:background="@drawable/button_1" 
+        android:layout_width="120px"
+        android:layout_height="48px"
+        android:layout_margin="15px"
+        android:text = "@string/endless"
+        />
+    <Button android:id = "@+id/button_3"
+        android:background="@drawable/button_1" 
+        android:layout_width="120px"
+        android:layout_height="48px"
+        android:text = "@string/quit"
+        />
+
+
+</LinearLayout>

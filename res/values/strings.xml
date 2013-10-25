@@ -8,4 +8,6 @@
     <string name="alert_dialog_ok">确定</string>
     <string name="alert_dialog_cancel">取消</string>
     <string name="baidu_banner">baidu_banner</string>
+    <string name="nomal">正常模式</string>
+    <string name="endless">无尽模式</string>
 </resources>

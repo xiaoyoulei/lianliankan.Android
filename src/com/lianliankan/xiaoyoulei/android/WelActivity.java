@@ -29,7 +29,7 @@ public class WelActivity extends Activity
 	private ImageButton btnPlay;
 	private ImageButton btnRefresh;
 	private ImageButton btnTip;
-	private ImageView imgTitle;
+//	private ImageView imgTitle;
 	private GameView gameView;
 	private SeekBar progress;
 	private MyDialog dialog;
@@ -69,7 +69,7 @@ public class WelActivity extends Activity
         btnPlay = (ImageButton) findViewById(R.id.play_btn);
         btnRefresh = (ImageButton) findViewById(R.id.refresh_btn);
         btnTip = (ImageButton) findViewById(R.id.tip_btn);
-        imgTitle = (ImageView) findViewById(R.id.title_img);
+//        imgTitle = (ImageView) findViewById(R.id.title_img);
         gameView = (GameView) findViewById(R.id.game_view);
         clock = (ImageView) findViewById(R.id.clock);
         progress = (SeekBar) findViewById(R.id.timer);
@@ -87,7 +87,7 @@ public class WelActivity extends Activity
         GameView.initSound(this);
         
         Animation scale = AnimationUtils.loadAnimation(this,R.anim.scale_anim);
-        imgTitle.startAnimation(scale);
+//        imgTitle.startAnimation(scale);
         btnPlay.startAnimation(scale);
         
         player = MediaPlayer.create(this, R.raw.bg);
@@ -119,7 +119,7 @@ public class WelActivity extends Activity
     		
     		btnPlay.startAnimation(scaleOut);
     		btnPlay.setVisibility(View.GONE);
-    		imgTitle.setVisibility(View.GONE);
+//    		imgTitle.setVisibility(View.GONE);
     		gameView.setVisibility(View.VISIBLE);
     		
     		btnRefresh.setVisibility(View.VISIBLE);
