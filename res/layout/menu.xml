@@ -13,21 +13,21 @@
 "
     <Button android:id = "@+id/button_1"
         android:background="@drawable/button_1" 
-        android:layout_width="120px"
-        android:layout_height="48px"
+        android:layout_width="120dip"
+        android:layout_height="48dip"
         android:text="@string/nomal"
         />
     <Button android:id = "@+id/button_2"
         android:background="@drawable/button_1" 
-        android:layout_width="120px"
-        android:layout_height="48px"
-        android:layout_margin="15px"
+        android:layout_width="120dip"
+        android:layout_height="48dip"
+        android:layout_margin="15dip"
         android:text = "@string/endless"
         />
     <Button android:id = "@+id/button_3"
         android:background="@drawable/button_1" 
-        android:layout_width="120px"
-        android:layout_height="48px"
+        android:layout_width="120dip"
+        android:layout_height="48dip"
         android:text = "@string/quit"
         />
 

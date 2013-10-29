@@ -72,7 +72,7 @@ containing a value of this type.
         public static final int button_1=0x7f080006;
         public static final int button_2=0x7f080007;
         public static final int button_3=0x7f080008;
-        public static final int clock=0x7f08000a;
+        public static final int clock_time=0x7f08000a;
         public static final int game_view=0x7f08000c;
         public static final int menu_imgbtn=0x7f080003;
         public static final int next_imgbtn=0x7f080005;

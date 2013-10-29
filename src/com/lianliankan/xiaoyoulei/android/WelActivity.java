@@ -33,11 +33,14 @@ public class WelActivity extends Activity
 	private GameView gameView;
 	private SeekBar progress;
 	private MyDialog dialog;
-	private ImageView clock;
+//	private ImageView clock;
+	private TextView clock_time ;
 	private TextView textRefreshNum;
 	private TextView textTipNum;
 	
 	private MediaPlayer player;
+	
+	private int game_model ; 
 	
 	private Handler handler = new Handler(){
 		@Override
@@ -66,12 +69,14 @@ public class WelActivity extends Activity
         com.baidu.mobstat.StatService.setSendLogStrategy(this , SendStrategyEnum.APP_START, 1, false);
         
 
+        Bundle bundle = getIntent().getExtras() ;
         btnPlay = (ImageButton) findViewById(R.id.play_btn);
         btnRefresh = (ImageButton) findViewById(R.id.refresh_btn);
         btnTip = (ImageButton) findViewById(R.id.tip_btn);
 //        imgTitle = (ImageView) findViewById(R.id.title_img);
         gameView = (GameView) findViewById(R.id.game_view);
-        clock = (ImageView) findViewById(R.id.clock);
+//        clock = (ImageView) findViewById(R.id.clock);
+        clock_time = (TextView)findViewById(R.id.clock_time);
         progress = (SeekBar) findViewById(R.id.timer);
         textRefreshNum = (TextView) findViewById(R.id.text_refresh_num);
         textTipNum = (TextView) findViewById(R.id.text_tip_num);
@@ -125,7 +130,9 @@ public class WelActivity extends Activity
     		btnRefresh.setVisibility(View.VISIBLE);
     		btnTip.setVisibility(View.VISIBLE);
     		progress.setVisibility(View.VISIBLE);
-    		clock.setVisibility(View.VISIBLE);
+    		progress.setEnabled(false);
+//    		clock.setVisibility(View.VISIBLE);
+    		clock_time.setVisibility(View.VISIBLE);
     		textRefreshNum.setVisibility(View.VISIBLE);
     		textTipNum.setVisibility(View.VISIBLE);
     		
@@ -152,6 +159,7 @@ public class WelActivity extends Activity
 	public void onTimer(int leftTime) {
 		Log.i("onTimer", leftTime+"");
 		progress.setProgress(leftTime);
+		clock_time.setText(""+leftTime);
 	}
 
 	@Override
