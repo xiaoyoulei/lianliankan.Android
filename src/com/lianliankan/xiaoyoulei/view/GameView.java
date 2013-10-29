@@ -6,11 +6,17 @@ import java.util.Random;
 
 
 
+
+
+
 import com.lianliankan.xiaoyoulei.R;
+import com.lianliankan.xiaoyoulei.android.Menu;
 //import com.lianliankan.R;
 import com.lianliankan.xiaoyoulei.android.SoundPlay;
+import com.lianliankan.xiaoyoulei.android.WelActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -27,6 +33,7 @@ public class GameView extends BoardView {
 	public static final int PAUSE = 3;
 	public static final int PLAY = 4;
 	public static final int QUIT = 5;
+	public static final int MENU = 6;
 
 	private int Help = 3;
 	private int Refresh = 3;
@@ -66,6 +73,10 @@ public class GameView extends BoardView {
 	public static final int ID_SOUND_TIP = 7;
 	public static final int ID_SOUND_ERROR = 8;
 	
+	public void back_to_menu()
+	{
+		stateListener.OnStateChanged(GameView.MENU);
+	}
 	public void startPlay(){
 		Help = 3;
 		Refresh = 3;

@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -42,7 +43,8 @@ public class MyDialog extends Dialog implements OnClickListener{
 		this.dismiss();
 		switch(v.getId()){
 		case R.id.menu_imgbtn:
-			Dialog dialog = new AlertDialog.Builder(context)
+			gameview.back_to_menu();
+/*			Dialog dialog = new AlertDialog.Builder(context)
             .setIcon(R.drawable.buttons_bg20)
             .setTitle(R.string.quit)
             .setMessage(R.string.sure_quit)
@@ -56,7 +58,7 @@ public class MyDialog extends Dialog implements OnClickListener{
                 }
             })
             .create();
-			dialog.show();
+			dialog.show();*/
 //			gameview.startPlay();
 //			Toast.makeText(context, text, duration);
 			break;

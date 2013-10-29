@@ -114,6 +114,7 @@ containing a value of this type.
         public static final int quit=0x7f060003;
         public static final int sure_quit=0x7f060004;
         public static final int time=0x7f060002;
+        public static final int version=0x7f06000a;
     }
     public static final class style {
         public static final int dialog=0x7f070000;

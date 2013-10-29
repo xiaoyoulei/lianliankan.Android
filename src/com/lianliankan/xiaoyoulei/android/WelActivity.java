@@ -1,7 +1,11 @@
 package com.lianliankan.xiaoyoulei.android;
 
+import android.R.color;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,8 +19,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import com.baidu.mobstat.SendStrategyEnum;
 import com.lianliankan.xiaoyoulei.R;
+import com.lianliankan.xiaoyoulei.R.string;
 import com.lianliankan.xiaoyoulei.view.GameView;
 import com.lianliankan.xiaoyoulei.view.OnStateListener;
 import com.lianliankan.xiaoyoulei.view.OnTimerListener;
@@ -53,6 +59,17 @@ public class WelActivity extends Activity
 			case 1:
 				dialog = new MyDialog(WelActivity.this,gameView,"Ê§°Ü£¡",gameView.getTotalTime() - progress.getProgress());
 				dialog.show();
+				break ;
+			case 2:
+				clock_time.setText(""+msg.arg1);
+				if(msg.arg1 % 2 == 0)
+				{
+					clock_time.setTextColor(Color.YELLOW);
+				}
+				else {
+					clock_time.setTextColor(Color.RED);
+				}
+				break ;
 			}
 		}
 	};
@@ -159,7 +176,12 @@ public class WelActivity extends Activity
 	public void onTimer(int leftTime) {
 		Log.i("onTimer", leftTime+"");
 		progress.setProgress(leftTime);
-		clock_time.setText(""+leftTime);
+//		clock_time.setText(""+leftTime);
+		Message msg = new Message();
+		msg.what = 2;
+		msg.arg1 = leftTime ;
+		handler.sendMessage(msg);
+		
 	}
 
 	@Override
@@ -181,6 +203,9 @@ public class WelActivity extends Activity
 	    	gameView.player.release();
 	    	gameView.stopTimer();
 	    	break;
+		case GameView.MENU:
+			this.finish();
+			break;
 		}
 	}
 
