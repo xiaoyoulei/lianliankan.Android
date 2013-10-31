@@ -24,11 +24,11 @@ public class BoardView extends View {
 	/**
 	 * xCount x轴方向的图标数+1
 	 */
-	protected  static final int xCount =10;
+	protected  static final int xCount = 10;
 	/**
 	 * yCount y轴方向的图标数+1
 	 */
-	protected static final int  yCount =12;
+	protected static final int  yCount = 12;
 	/**
 	 * map 连连看游戏棋盘
 	 */

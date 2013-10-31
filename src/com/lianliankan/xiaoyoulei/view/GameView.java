@@ -43,6 +43,8 @@ public class GameView extends BoardView {
 	private int totalTime = 100;
 	private int leftTime;
 	
+	private int now_score = 0;
+	
 	public static SoundPlay soundPlay;
 	public MediaPlayer player;
 	
@@ -77,6 +79,13 @@ public class GameView extends BoardView {
 	{
 		stateListener.OnStateChanged(GameView.MENU);
 	}
+	public void endlessPlay()
+	{
+		initMap();
+		player.start();
+		isStop = false ;
+		GameView.this.invalidate();
+	}
 	public void startPlay(){
 		Help = 3;
 		Refresh = 3;
@@ -90,6 +99,9 @@ public class GameView extends BoardView {
 		refreshTime = new RefreshTime();
 		refreshTime.start();
 		GameView.this.invalidate();
+	}
+	public void continue_play()
+	{
 	}
 	
 	public void startNextPlay(){
@@ -156,6 +168,7 @@ public class GameView extends BoardView {
 		public void run() {
 			while (leftTime >= 0 && !isStop) {
 				timerListener.onTimer(leftTime);
+				timerListener.setScore(now_score);
 				leftTime--;
 				try {
 					Thread.sleep(1000);
@@ -173,6 +186,10 @@ public class GameView extends BoardView {
 	
 	public int getTotalTime(){
 		return totalTime;
+	}
+	public int getNowScore()
+	{
+		return now_score ;
 	}
 	
 	public int getTipNum(){
@@ -195,6 +212,12 @@ public class GameView extends BoardView {
 					drawLine(path.toArray(new Point[] {}));
 					soundPlay.play(ID_SOUND_DISAPEAR, 0);
 					refreshHandler.sleep(500);
+					leftTime += toolsChangedListener.addTime() ;
+					if(leftTime > totalTime)
+					{
+						leftTime = totalTime ;
+					}
+					now_score += toolsChangedListener.addScore();
 				} else {
 					selected.clear();
 					selected.add(p);

@@ -65,26 +65,30 @@ containing a value of this type.
         public static final int mainbg=0x7f02001c;
         public static final int refresh=0x7f02001d;
         public static final int shape=0x7f02001e;
-        public static final int title=0x7f02001f;
+        public static final int stop=0x7f02001f;
+        public static final int title=0x7f020020;
     }
     public static final class id {
-        public static final int adView=0x7f080011;
+        public static final int adView=0x7f080014;
         public static final int button_1=0x7f080006;
         public static final int button_2=0x7f080007;
         public static final int button_3=0x7f080008;
         public static final int clock_time=0x7f08000a;
-        public static final int game_view=0x7f08000c;
+        public static final int game_view=0x7f08000f;
         public static final int menu_imgbtn=0x7f080003;
+        public static final int model_text=0x7f08000c;
         public static final int next_imgbtn=0x7f080005;
         public static final int play_btn=0x7f080009;
-        public static final int refresh_btn=0x7f08000d;
+        public static final int refresh_btn=0x7f080010;
         public static final int replay_imgbtn=0x7f080004;
+        public static final int score_text=0x7f08000d;
+        public static final int stop_button=0x7f08000e;
         public static final int text_message=0x7f080001;
-        public static final int text_refresh_num=0x7f08000e;
+        public static final int text_refresh_num=0x7f080011;
         public static final int text_time=0x7f080002;
-        public static final int text_tip_num=0x7f080010;
+        public static final int text_tip_num=0x7f080013;
         public static final int timer=0x7f08000b;
-        public static final int tip_btn=0x7f08000f;
+        public static final int tip_btn=0x7f080012;
         public static final int view_dialog=0x7f080000;
     }
     public static final class layout {
@@ -104,17 +108,18 @@ containing a value of this type.
         public static final int win=0x7f050008;
     }
     public static final class string {
-        public static final int alert_dialog_cancel=0x7f060006;
-        public static final int alert_dialog_ok=0x7f060005;
+        public static final int alert_dialog_cancel=0x7f060007;
+        public static final int alert_dialog_ok=0x7f060006;
         public static final int app_name=0x7f060001;
-        public static final int baidu_banner=0x7f060007;
-        public static final int endless=0x7f060009;
+        public static final int baidu_banner=0x7f060008;
+        public static final int endless=0x7f06000a;
         public static final int hello=0x7f060000;
-        public static final int nomal=0x7f060008;
-        public static final int quit=0x7f060003;
-        public static final int sure_quit=0x7f060004;
+        public static final int nomal=0x7f060009;
+        public static final int quit=0x7f060004;
+        public static final int score=0x7f060003;
+        public static final int sure_quit=0x7f060005;
         public static final int time=0x7f060002;
-        public static final int version=0x7f06000a;
+        public static final int version=0x7f06000b;
     }
     public static final class style {
         public static final int dialog=0x7f070000;

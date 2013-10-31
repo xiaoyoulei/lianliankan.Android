@@ -3,6 +3,7 @@
     <string name="hello">aa</string>
     <string name="app_name">连连看</string>
     <string name="time">所用时间为：$秒</string>
+    <string name="score">最后得分为：$分</string>
     <string name="quit">退出</string>
     <string name="sure_quit">确定退出游戏？</string>
     <string name="alert_dialog_ok">确定</string>

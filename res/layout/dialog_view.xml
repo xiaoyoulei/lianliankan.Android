@@ -14,7 +14,7 @@
   	<TextView android:id="@+id/text_time"
   			android:layout_height="wrap_content"
   			android:layout_width="fill_parent"
-  			android:text="@string/time"
+  			android:text="@string/score"
   			android:layout_below="@id/text_message"
   			android:textColor="@android:color/white"
   			android:gravity="center_horizontal"
