@@ -2,9 +2,8 @@ package com.lianliankan.xiaoyoulei.view;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.lianliankan.xiaoyoulei.R;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -19,6 +18,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+@SuppressLint("DrawAllocation")
 public class BoardView extends View {
 
 	/**

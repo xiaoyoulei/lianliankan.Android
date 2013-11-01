@@ -4,11 +4,8 @@ package com.lianliankan.xiaoyoulei.android;
 import com.lianliankan.xiaoyoulei.view.*;
 import com.lianliankan.xiaoyoulei.*;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -17,12 +14,9 @@ import android.widget.TextView;
 public class MyDialog extends Dialog implements OnClickListener{
 
 	private GameView gameview;
-	private Context context;
-	
-	public MyDialog(Context context, GameView gameview, String msg, int time) {
+	public MyDialog(Context context, GameView gameview, String msg, int score , int model) {
 		super(context,R.style.dialog);
 		this.gameview = gameview;
-		this.context = context;
 		this.setContentView(R.layout.dialog_view);
 		TextView text_msg = (TextView) findViewById(R.id.text_message);
 		TextView text_time = (TextView) findViewById(R.id.text_time);
@@ -30,8 +24,12 @@ public class MyDialog extends Dialog implements OnClickListener{
 		ImageButton btn_next = (ImageButton) findViewById(R.id.next_imgbtn);
 		ImageButton btn_replay = (ImageButton) findViewById(R.id.replay_imgbtn);
 		
+		if(model == 2) // loss
+		{
+			btn_next.setVisibility(View.GONE);
+		}
 		text_msg.setText(msg);
-		text_time.setText(text_time.getText().toString().replace("$", String.valueOf(time)));
+		text_time.setText(text_time.getText().toString().replace("$", String.valueOf(score)));
 		btn_menu.setOnClickListener(this);
 		btn_next.setOnClickListener(this);
 		btn_replay.setOnClickListener(this);
@@ -63,7 +61,7 @@ public class MyDialog extends Dialog implements OnClickListener{
 //			Toast.makeText(context, text, duration);
 			break;
 		case R.id.replay_imgbtn:
-			gameview.startPlay();
+			gameview.startPlay(0);
 			break;
 		case R.id.next_imgbtn:
 			gameview.startNextPlay();

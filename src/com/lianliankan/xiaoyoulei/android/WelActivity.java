@@ -1,10 +1,8 @@
 package com.lianliankan.xiaoyoulei.android;
 
-import android.R.color;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -16,13 +14,11 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.baidu.mobstat.SendStrategyEnum;
 import com.lianliankan.xiaoyoulei.R;
-import com.lianliankan.xiaoyoulei.R.string;
 import com.lianliankan.xiaoyoulei.view.GameView;
 import com.lianliankan.xiaoyoulei.view.OnStateListener;
 import com.lianliankan.xiaoyoulei.view.OnTimerListener;
@@ -70,12 +66,12 @@ public class WelActivity extends Activity
 				else {
 					
 				
-					dialog = new MyDialog(WelActivity.this,gameView,"Ê¤Àû£¡",gameView.getNowScore() );
+					dialog = new MyDialog(WelActivity.this,gameView,"Ê¤Àû£¡",gameView.getNowScore() , 1);
 					dialog.show();
 				}
 				break;
 			case LOSE_HANDLE:
-				dialog = new MyDialog(WelActivity.this,gameView,"Ê§°Ü£¡",gameView.getNowScore() );
+				dialog = new MyDialog(WelActivity.this,gameView,"Ê§°Ü£¡",gameView.getNowScore()  , 2);
 				dialog.show();
 				break ;
 			case SET_TIME_HANDLE:
@@ -171,6 +167,12 @@ public class WelActivity extends Activity
     }
     
     @Override
+    protected void onResume(){
+    	super.onResume();
+    	gameView.setMode(GameView.RESUME);
+    }
+
+    @Override
 	protected void onDestroy() {
     	super.onDestroy();
     	gameView.setMode(GameView.QUIT);
@@ -260,7 +262,7 @@ public class WelActivity extends Activity
     		btnTip.startAnimation(transIn);
     		gameView.startAnimation(transIn);
     		player.pause();
-    		gameView.startPlay();
+    		gameView.startPlay(0);
     		break;
     	case R.id.refresh_btn:
     		Animation shake01 = AnimationUtils.loadAnimation(this,R.anim.shake);
@@ -318,6 +320,10 @@ public class WelActivity extends Activity
 	    	gameView.player.release();
 	    	gameView.stopTimer();
 	    	break;
+		case GameView.RESUME:
+			gameView.player.start();
+			gameView.startTimer();
+			break;
 		case GameView.MENU:
 			this.finish();
 			break;

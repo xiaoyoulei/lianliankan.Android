@@ -4,24 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-
-
-
-
 import com.lianliankan.xiaoyoulei.R;
-import com.lianliankan.xiaoyoulei.android.Menu;
 //import com.lianliankan.R;
 import com.lianliankan.xiaoyoulei.android.SoundPlay;
-import com.lianliankan.xiaoyoulei.android.WelActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 
 public class GameView extends BoardView {
@@ -34,6 +28,7 @@ public class GameView extends BoardView {
 	public static final int PLAY = 4;
 	public static final int QUIT = 5;
 	public static final int MENU = 6;
+	public static final int RESUME = 7 ;
 
 	private int Help = 3;
 	private int Refresh = 3;
@@ -42,6 +37,7 @@ public class GameView extends BoardView {
 	 */
 	private int totalTime = 100;
 	private int leftTime;
+	private boolean isAlive ;
 	
 	private int now_score = 0;
 	
@@ -84,12 +80,17 @@ public class GameView extends BoardView {
 		initMap();
 		player.start();
 		isStop = false ;
+		isAlive = true ;
 		GameView.this.invalidate();
 	}
-	public void startPlay(){
+	public void startPlay(int start_score){
 		Help = 3;
 		Refresh = 3;
 		isStop = false;
+		isAlive = true ;
+		now_score = start_score;
+		toolsChangedListener.setScore(now_score);
+		Log.i("state", "now_score:"+now_score) ;
 		toolsChangedListener.onRefreshChanged(Refresh);
 		toolsChangedListener.onTipChanged(Help);
 		
@@ -107,7 +108,7 @@ public class GameView extends BoardView {
 	public void startNextPlay(){
 		//下一关为上一关减去10秒的时间
 		totalTime-=10;
-		startPlay();
+		startPlay(now_score);
 	}
 	
 	public static void initSound(Context context){
@@ -137,7 +138,12 @@ public class GameView extends BoardView {
 	public void stopTimer(){
 		isStop = true;
 	}
+	public void startTimer()
+	{
+		isStop = false ;
+	}
 	
+	@SuppressLint("HandlerLeak")
 	class RefreshHandler extends Handler {
 
 		@Override
@@ -149,6 +155,7 @@ public class GameView extends BoardView {
 					setMode(WIN);
 					soundPlay.play(ID_SOUND_WIN, 0);
 					isStop = true;
+					isAlive = false ;
 				} else if (die()) {
 					change();
 				}
@@ -166,17 +173,20 @@ public class GameView extends BoardView {
 	class RefreshTime extends Thread {
 
 		public void run() {
-			while (leftTime >= 0 && !isStop) {
-				timerListener.onTimer(leftTime);
-				timerListener.setScore(now_score);
-				leftTime--;
+			while (leftTime >= 0 && isAlive) {
+				if(!isStop)
+				{
+					timerListener.onTimer(leftTime);
+					leftTime--;
+				}
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
 			}
-			if(!isStop){
+			if(isAlive){
 				setMode(LOSE);
 				soundPlay.play(ID_SOUND_LOSE, 0);
 			}
@@ -218,6 +228,7 @@ public class GameView extends BoardView {
 						leftTime = totalTime ;
 					}
 					now_score += toolsChangedListener.addScore();
+					toolsChangedListener.setScore(now_score);
 				} else {
 					selected.clear();
 					selected.add(p);
