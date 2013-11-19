@@ -65,7 +65,7 @@
     			android:layout_height="wrap_content"
     			android:layout_alignParentBottom="true"
     			android:layout_centerHorizontal="true"
-    			android:paddingBottom="40dip"
+    		  	android:paddingBottom="50dip"
     			>
 	    <ImageButton android:id="@+id/refresh_btn"
 	    			android:background="@drawable/refresh"
