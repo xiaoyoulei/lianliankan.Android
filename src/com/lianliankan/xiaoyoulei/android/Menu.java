@@ -22,6 +22,7 @@ public class Menu extends Activity{
 		setContentView(R.layout.menu);
 		
 		// test for submit
+		// test 2
 
 		Button_1 = (Button)findViewById(R.id.button_1);
 		Button_2 = (Button)findViewById(R.id.button_2);
