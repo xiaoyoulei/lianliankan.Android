@@ -20,6 +20,8 @@ public class Menu extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu);
+		
+		// test for submit
 
 		Button_1 = (Button)findViewById(R.id.button_1);
 		Button_2 = (Button)findViewById(R.id.button_2);

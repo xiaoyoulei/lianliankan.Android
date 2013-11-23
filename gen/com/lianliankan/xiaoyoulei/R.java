@@ -60,13 +60,14 @@ containing a value of this type.
         public static final int fruit_17=0x7f020017;
         public static final int fruit_18=0x7f020018;
         public static final int fruit_19=0x7f020019;
-        public static final int icon=0x7f02001a;
-        public static final int light_bulb=0x7f02001b;
-        public static final int mainbg=0x7f02001c;
-        public static final int refresh=0x7f02001d;
-        public static final int shape=0x7f02001e;
-        public static final int stop=0x7f02001f;
-        public static final int title=0x7f020020;
+        public static final int ic_launcher=0x7f02001a;
+        public static final int icon=0x7f02001b;
+        public static final int light_bulb=0x7f02001c;
+        public static final int mainbg=0x7f02001d;
+        public static final int refresh=0x7f02001e;
+        public static final int shape=0x7f02001f;
+        public static final int stop=0x7f020020;
+        public static final int title=0x7f020021;
     }
     public static final class id {
         public static final int adView=0x7f080014;
